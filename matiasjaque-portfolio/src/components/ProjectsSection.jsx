@@ -50,7 +50,7 @@ const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <Container sx={{ py: 8 }}>
+    <Container sx={{ py: 8 }} id="project">
       <Typography variant="h4" align="center" gutterBottom>
         My Projects
       </Typography>

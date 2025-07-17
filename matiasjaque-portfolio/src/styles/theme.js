@@ -18,6 +18,9 @@ const theme = createTheme({
       main: '#22D3EE', // Cyan
     },
   },
+  typography: {
+    fontFamily: ['Inter', 'sans-serif'].join(','),
+  },
 });
 
 export default theme;
