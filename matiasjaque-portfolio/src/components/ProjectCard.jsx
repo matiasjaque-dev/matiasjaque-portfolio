@@ -8,37 +8,69 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
+import { GitHub, OpenInNew } from '@mui/icons-material';
 
-const ProjectCard = ({ project, onViewMore }) => {
+const ProjectCard = ({ project }) => {
   return (
     <Card
       sx={{
         transition: 'transform 0.2s, box-shadow 0.2s',
         '&:hover': { transform: 'translateY(-4px)', boxShadow: 6 },
+        height: '100%', // Para que ocupe toda la celda del Grid
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        maxWidth: 550,
+        width: '100%',
       }}
     >
       <CardMedia
         component="img"
-        height="160"
         image={project.image}
         alt={project.name}
+        sx={{
+          aspectRatio: '16/9',
+          width: '100%',
+          objectFit: 'cover',
+          borderTopLeftRadius: 4,
+          borderTopRightRadius: 4,
+          maxHeight: 190,
+        }}
       />
-      <CardContent>
-        <Typography variant="h6" gutterBottom>
+
+      <CardContent sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" gutterBottom fontWeight={'bold'}>
           {project.name}
         </Typography>
         <Stack direction={'row'} spacing={1} mb={1} flexWrap={'wrap'}>
           {project.tech.map((tech) => (
-            <Chip key={tech} label={tech} size="small" />
+            <Chip key={tech} label={tech} size="small" color="primary" />
           ))}
         </Stack>
         <Typography variant="body2" color="text.secondary">
           {project.description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" onClick={() => onViewMore(project)}>
-          View More
+      <CardActions sx={{ justifyContent: 'space-between' }}>
+        <Button
+          size="small"
+          variant="outlined"
+          href={project.github}
+          target="_blank"
+          rel="noopener"
+          startIcon={<GitHub />}
+        >
+          GitHub
+        </Button>
+        <Button
+          size="small"
+          variant="contained"
+          href={project.demo}
+          target="_blank"
+          rel="noopener"
+          endIcon={<OpenInNew />}
+        >
+          Visit Site
         </Button>
       </CardActions>
     </Card>
@@ -49,6 +81,8 @@ ProjectCard.propTypes = {
   project: PropTypes.shape({
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    demo: PropTypes.string.isRequired,
+    github: PropTypes.string.isRequired,
     tech: PropTypes.arrayOf(PropTypes.string).isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
