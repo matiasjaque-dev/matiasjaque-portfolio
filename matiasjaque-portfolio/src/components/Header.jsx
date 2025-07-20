@@ -82,9 +82,10 @@ const Header = () => {
                           justifyContent: 'flex-start',
                           transition: 'all 0.3s ease',
                           '&:hover': {
-                            backgroundColor: '#007BFF',
+                            backgroundColor: (theme) =>
+                              theme.palette.primary.main,
                             color: '#FFFFFF',
-                            borderColor: '#0056b3',
+                            borderColor: (theme) => theme.palette.primary.dark,
                           },
                         }}
                       >
@@ -105,14 +106,14 @@ const Header = () => {
                 offset={-70}
               >
                 <Button
-                  color="inherit"
                   sx={{
                     mx: 0.5,
+                    color: 'white',
+                    borderBottom: '2px solid transparent',
+                    transition:
+                      'background-color 0.3s, border-bottom-color 0.3s',
                     '&:hover': {
-                      borderBottom: (theme) =>
-                        `2px solid ${theme.palette.primary.dark}`,
-                      backgroundColor: (theme) => theme.palette.primary.main,
-                      color: 'white',
+                      borderBottom: `2px solid white}`,
                     },
                   }}
                 >
