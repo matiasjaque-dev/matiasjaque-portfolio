@@ -31,7 +31,7 @@ const ProjectsSection = () => {
           marginBottom={2}
           sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}
         >
-          My Projects
+          Mis Proyectos
         </Typography>
 
         <Grid container spacing={4} display={'flex'} justifyContent={'center'}>

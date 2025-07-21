@@ -6,19 +6,19 @@ import {
   Avatar,
   Switch,
   Fade,
+  useTheme,
+  Divider,
 } from '@mui/material';
 import React, { useState } from 'react';
 
 const AboutSection = () => {
+  const theme = useTheme();
+
   const aboutData = {
     professional: {
       photo: '/dummy-professional.jpg',
       description:
-        'Mi nombre es Matías Jaque y me apasiona el desarrollo Front-End. ' +
-        'He trabajado con tecnologías como JavaScript, React.js, Zustand y Material UI, y también tengo experiencia en el desarrollo Back-End utilizando Node.js. ' +
-        'En bases de datos, he trabajado con Firestore, MySQL, PostgreSQL y Oracle. ' +
-        'Me considero una persona con alta disposición para aprender de forma continua y con responsabilidad, ' +
-        'buscando siempre dar lo mejor de mí para crecer tanto en habilidades técnicas como en aspectos personales, como el aprendizaje de inglés y el trabajo en equipo.',
+        'Soy Matías Jaque, desarrollador Front-End con experiencia en diversas tecnologías. Me gusta aprender continuamente mientras trabajo en distintos proyectos, integrando diferentes herramientas y enfoques, buscando siempre dar lo mejor de mí para crecer tanto en habilidades técnicas como en aspectos personales.',
       skills: [
         'React',
         'JavaScript',
@@ -34,11 +34,7 @@ const AboutSection = () => {
     personal: {
       photo: '/dummy-personal.jpg',
       description:
-        'Tengo 24 años y cuento con dos años de experiencia laboral. Me considero una persona esforzada y con ambiciones de llegar lejos, ' +
-        'lo que me motiva día a día a dar lo mejor de mí y crecer continuamente como persona. Disfruto mantenerme activo haciendo deporte y yendo al gimnasio, ' +
-        'además de equilibrar mi tiempo entre el trabajo y el estudio autodidacta. ' +
-        'En mis tiempos libres me gusta tocar teclado, jugar PlayStation y leer. En general, valoro mantener una actitud positiva y disfrutar de cada etapa de la vida, ' +
-        'buscando aprender constantemente y rodearme de buenas experiencias.',
+        'Tengo 24 años y dos años de experiencia laboral. Me considero una persona esforzada y con ambiciones de llegar lejos, lo que me motiva a dar siempre lo mejor de mí y crecer de forma constante. Busco mantenerme activo y equilibrar mi tiempo entre aprender, hacer deporte y disfrutar de mis hobbies. Valoro mantener una actitud positiva y rodearme de buenas experiencias.',
       skills: [
         'Teclado',
         'PlayStation',
@@ -62,10 +58,25 @@ const AboutSection = () => {
   return (
     <Box
       id="about"
-      sx={{ py: 8, px: 2, maxWidth: '800px', mx: 'auto', textAlign: 'center' }}
+      sx={{
+        px: 2,
+        maxWidth: '800px',
+        mx: 'auto',
+        textAlign: 'center',
+      }}
     >
-      <Typography variant="h4" fontWeight="bold" gutterBottom>
-        About Me
+      <Typography
+        variant="h3"
+        align="center"
+        fontWeight="bold"
+        marginBottom={2}
+        sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}
+      >
+        Acerca de Mi
+      </Typography>
+
+      <Typography variant="subtitle1" color="text.secondary" mb={2}>
+        Conoce más sobre quién soy, tanto en lo profesional como en lo personal.
       </Typography>
 
       <Box
@@ -76,16 +87,46 @@ const AboutSection = () => {
           mb: 2,
         }}
       >
-        <Typography variant="body1">Personal</Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            px: 1,
+            borderRadius: 3,
+            ...(isProfessional
+              ? {}
+              : {
+                  backgroundColor: theme.palette.primary.main,
+                  color: 'white',
+                  fontWeight: 'bold',
+                }),
+          }}
+        >
+          Personal
+        </Typography>
         <Switch
           checked={isProfessional}
           onChange={handleToggle}
           color="primary"
         />
-        <Typography variant="body1">Professional</Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            px: 1,
+            borderRadius: 3,
+            ...(isProfessional
+              ? {
+                  backgroundColor: theme.palette.primary.main,
+                  color: 'white',
+                  fontWeight: 'bold',
+                }
+              : {}),
+          }}
+        >
+          Profesional
+        </Typography>
       </Box>
 
-      <Fade in={true} timeout={400}>
+      <Fade in={true} timeout={500}>
         <Box
           key={isProfessional ? 'pro' : 'per'}
           sx={{
@@ -93,24 +134,47 @@ const AboutSection = () => {
             flexDirection: 'column',
             alignItems: 'center',
             gap: 2,
+            px: 2,
           }}
         >
           <Avatar
-            alt={isProfessional ? 'Professional photo' : 'Personal photo'}
+            alt={
+              isProfessional
+                ? 'Foto profesional de Matías Jaque'
+                : 'Foto personal de Matías Jaque'
+            }
             src={currentData.photo}
-            sx={{ width: 150, height: 150 }}
+            sx={{ width: 150, height: 150, boxShadow: 3 }}
           />
-          <Typography variant="body1" sx={{ maxWidth: '600px' }}>
+          <Typography
+            variant="body1"
+            sx={{
+              maxWidth: '650px',
+              textAlign: 'center',
+              lineHeight: 1.6,
+            }}
+          >
             {currentData.description}
           </Typography>
+          <Divider
+            sx={{ width: '120px', borderColor: theme.palette.primary.main }}
+          />
+
           <Stack
             direction="row"
             spacing={1}
             flexWrap="wrap"
             justifyContent="center"
+            rowGap={1}
           >
             {currentData.skills.map((skill, index) => (
-              <Chip key={index} label={skill} color="primary" />
+              <Chip
+                key={index}
+                label={skill}
+                color="primary"
+                variant="outlined"
+                sx={{ fontSize: '0.85rem', mb: '4px' }}
+              />
             ))}
           </Stack>
         </Box>

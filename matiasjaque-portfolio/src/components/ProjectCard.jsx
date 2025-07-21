@@ -70,7 +70,7 @@ const ProjectCard = ({ project }) => {
           rel="noopener"
           endIcon={<OpenInNew />}
         >
-          Visit Site
+          Visitar Sitio
         </Button>
       </CardActions>
     </Card>
