@@ -11,14 +11,29 @@ import { GitHub, LinkedIn, Email, Phone, Download } from '@mui/icons-material';
 
 const ContactSection = () => {
   return (
-    <Box id="contact" sx={{ py: 8, px: 2, textAlign: 'center' }}>
-      <Typography variant="h4" fontWeight="bold" gutterBottom>
+    <Box id="contact" sx={{ py: { xs: 2, md: 3 }, px: 2, textAlign: 'center' }}>
+      <Typography
+        variant="h3"
+        align="center"
+        fontWeight="bold"
+        marginBottom={2}
+        sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}
+      >
         Contáctame
       </Typography>
-      <Typography variant="body1" mb={4} maxWidth={'700px'} mx={'auto'}>
-        En caso de que desees contactarme por oportunidades laborales,
-        colaboraciones, proyectos o para conocer más sobre mi trabajo, aquí
-        encontrarás mis datos de contacto y enlaces relevantes.
+      <Typography
+        variant="body1"
+        mb={1}
+        maxWidth={'700px'}
+        mx={'auto'}
+        fontSize={{ xs: '0.95rem', md: '1rem' }}
+      >
+        Si deseas contactarme por oportunidades laborales, colaboraciones o
+        proyectos, aquí encontrarás mis datos de contacto y enlaces relevantes.
+      </Typography>
+
+      <Typography variant="h6" fontWeight="medium" mt={2} mb={0.5}>
+        Redes y Contacto
       </Typography>
 
       <Stack
@@ -26,6 +41,7 @@ const ContactSection = () => {
         spacing={3}
         justifyContent="center"
         flexWrap="wrap"
+        gap={1}
       >
         <Stack direction="row" alignItems="center">
           <IconButton
@@ -51,7 +67,7 @@ const ContactSection = () => {
             rel="noopener noreferrer"
             underline="hover"
           >
-            github.com/matiasjaque-dev
+            Github
           </Link>
         </Stack>
 
@@ -63,7 +79,7 @@ const ContactSection = () => {
             rel="noopener noreferrer"
             underline="hover"
           >
-            linkedin.com/in/matias-jaque-montecinos
+            Linkedin
           </Link>
         </Stack>
 
@@ -73,7 +89,11 @@ const ContactSection = () => {
           startIcon={<Download />}
           href="/dummy-cv.pdf"
           download
-          sx={{ mt: 2 }}
+          sx={{
+            py: 1,
+            px: 1.5,
+            fontSize: { xs: '0.8rem', md: '0.8rem' },
+          }}
         >
           Descargar CV
         </Button>
