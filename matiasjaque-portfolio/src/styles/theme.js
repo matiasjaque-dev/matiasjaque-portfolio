@@ -1,26 +1,28 @@
+// theme.js
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#6366F1', // Indigo
+export const getTheme = (mode) =>
+  createTheme({
+    palette: {
+      mode,
+      primary: {
+        main: mode === 'light' ? '#111111' : '#FFFFFF',
+      },
+      secondary: {
+        main: mode === 'light' ? '#333333' : '#DDDDDD',
+      },
+      background: {
+        default: mode === 'light' ? '#FFFFFF' : '#111111',
+        paper: mode === 'light' ? '#FFFFFF' : '#111111',
+      },
+      text: {
+        primary: mode === 'light' ? '#111111' : '#FFFFFF',
+      },
+      accent: {
+        main: mode === 'light' ? '#007BFF' : '#4EA8FF',
+      },
     },
-    secondary: {
-      main: '#A855F7', // Purple
+    typography: {
+      fontFamily: ['Inter', 'sans-serif'].join(','),
     },
-    background: {
-      default: '#F9FAFB', // Light Gray
-    },
-    text: {
-      primary: '#111827', // Gray-900
-    },
-    accent: {
-      main: '#22D3EE', // Cyan
-    },
-  },
-  typography: {
-    fontFamily: ['Inter', 'sans-serif'].join(','),
-  },
-});
-
-export default theme;
+  });
