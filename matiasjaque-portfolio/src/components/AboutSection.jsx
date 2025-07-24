@@ -16,7 +16,7 @@ const AboutSection = () => {
 
   const aboutData = {
     professional: {
-      photo: '/dummy-professional.jpg',
+      photo: '/matias-jaque-professional.webp',
       description:
         'Soy Matías Jaque, desarrollador Front-End con experiencia en diversas tecnologías. Me gusta aprender continuamente mientras trabajo en distintos proyectos, integrando diferentes herramientas y enfoques, buscando siempre dar lo mejor de mí para crecer tanto en habilidades técnicas como en aspectos personales.',
       skills: [
@@ -32,7 +32,7 @@ const AboutSection = () => {
       ],
     },
     personal: {
-      photo: '/dummy-personal.jpg',
+      photo: '/image.png',
       description:
         'Tengo 24 años y dos años de experiencia laboral. Me considero una persona esforzada y con ambiciones de llegar lejos, lo que me motiva a dar siempre lo mejor de mí y crecer de forma constante. Busco mantenerme activo y equilibrar mi tiempo entre aprender, hacer deporte y disfrutar de mis hobbies. Valoro mantener una actitud positiva y rodearme de buenas experiencias.',
       skills: [
@@ -146,7 +146,14 @@ const AboutSection = () => {
                   : 'Foto personal de Matías Jaque'
               }
               src={currentData.photo}
-              sx={{ width: 150, height: 150, boxShadow: 3 }}
+              sx={{
+                objectFit: 'cover',
+                objectPosition: 'center',
+                width: { xs: '190px', sm: '230px', md: '290px' },
+                height: { xs: '205px', sm: '245px', md: '315px' },
+                borderRadius: '50%',
+                boxShadow: 3,
+              }}
             />
             <Typography
               variant="body1"

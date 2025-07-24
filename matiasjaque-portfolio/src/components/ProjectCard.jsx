@@ -29,12 +29,13 @@ const ProjectCard = ({ project }) => {
         image={project.image}
         alt={project.name}
         sx={{
-          aspectRatio: '16/9',
+          aspectRatio: { xs: '4/3', md: '16/9' },
+          maxHeight: { xs: 150, md: 190 },
           width: '100%',
           objectFit: 'cover',
+          objectPosition: 'center',
           borderTopLeftRadius: 4,
           borderTopRightRadius: 4,
-          maxHeight: 190,
         }}
       />
 
