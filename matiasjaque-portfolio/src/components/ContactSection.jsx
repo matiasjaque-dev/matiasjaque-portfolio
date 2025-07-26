@@ -87,7 +87,7 @@ const ContactSection = () => {
           variant="contained"
           color="primary"
           startIcon={<Download />}
-          href="/dummy-cv.pdf"
+          href="/Matías-Jaque-cv-2025.pdf"
           download
           sx={{
             py: 1,
