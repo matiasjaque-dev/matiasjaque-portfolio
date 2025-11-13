@@ -53,26 +53,39 @@ const ProjectCard = ({ project }) => {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: 'space-between' }}>
-        <Button
-          size="small"
-          variant="outlined"
-          href={project.github}
-          target="_blank"
-          rel="noopener"
-          startIcon={<GitHub />}
-        >
-          GitHub
-        </Button>
-        <Button
-          size="small"
-          variant="contained"
-          href={project.demo}
-          target="_blank"
-          rel="noopener"
-          endIcon={<OpenInNew />}
-        >
-          Visitar Sitio
-        </Button>
+        {project.github && project.github !== '#' ? (
+          <Button
+            size="small"
+            variant="outlined"
+            href={project.github}
+            target="_blank"
+            rel="noopener"
+            startIcon={<GitHub />}
+          >
+            GitHub
+          </Button>
+        ) : (
+          <Button size="small" variant="outlined" disabled startIcon={<GitHub />}>
+            GitHub
+          </Button>
+        )}
+
+        {project.demo && project.demo !== '#' ? (
+          <Button
+            size="small"
+            variant="contained"
+            href={project.demo}
+            target="_blank"
+            rel="noopener"
+            endIcon={<OpenInNew />}
+          >
+            Visitar Sitio
+          </Button>
+        ) : (
+          <Button size="small" variant="contained" disabled endIcon={<OpenInNew />}>
+            Visitar Sitio
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

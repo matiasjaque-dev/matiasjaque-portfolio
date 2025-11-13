@@ -5,6 +5,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import { Fade } from '@mui/material';
 import ecommerceStorage from '../assets/e-commerce_store_react.png';
+import managmentPsychology from '../assets/managment-psychology.jpeg';
 
 // src/data/projects.js
 const projects = [
@@ -17,6 +18,16 @@ const projects = [
       'Tienda en línea realizada con React, Zustand y Tailwind, con gestión de carrito y stock usando Firestore para reforzar flujo de e-commerce y estado global.',
     github: 'https://github.com/matiasjaque-dev/eccomerce-store-react',
     demo: 'https://eccomerce-store-react-yo2h.vercel.app/',
+  },
+  {
+    id: 2,
+    name: 'Sistema de Gestión de Pacientes',
+    image: managmentPsychology,
+    tech: ['React', 'TypeScript', 'Material-UI', 'Node.js', 'MongoDB', 'JWT'],
+    description:
+      'Plataforma web para gestión clínica que permite a usuarios agendar citas, psicólogos gestionar sus pacientes y administradores supervisar el sistema completo. Incluye autenticación con roles, panel de control y API REST.',
+    github: 'https://github.com/matiasjaque-dev/managment-psychology-app',
+    demo: 'https://managment-psychology-app.vercel.app/',
   },
 ];
 
