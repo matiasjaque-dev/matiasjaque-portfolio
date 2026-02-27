@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import { Fade } from '@mui/material';
 import ecommerceStorage from '../assets/e-commerce_store_react.png';
 import managmentPsychology from '../assets/managment-psychology.jpeg';
+import realTimeChatDiagram from '../assets/realTimeChatDiagram.png';
 
 // src/data/projects.js
 const projects = [
@@ -28,6 +29,24 @@ const projects = [
       'Plataforma web para gestión clínica que permite a usuarios agendar citas, psicólogos gestionar sus pacientes y administradores supervisar el sistema completo. Incluye autenticación con roles, panel de control y API REST.',
     github: 'https://github.com/matiasjaque-dev/managment-psychology-app',
     demo: 'https://managment-psychology-app.vercel.app/',
+  },
+  {
+    id: 3,
+    name: 'Sistema de Mensajería Distribuido en Tiempo Real',
+    image: realTimeChatDiagram,
+    tech: [
+      'Node.js',
+      'Socket.io',
+      'Redis',
+      'MongoDB',
+      'Docker',
+      'Express',
+      'JWT',
+    ],
+    description:
+      'Sistema de chat escalable diseñado con una arquitectura distribuida. Utiliza WebSockets para comunicación bidireccional y Redis Pub/Sub para coordinar mensajes entre múltiples instancias del backend, permitiendo escalamiento horizontal. MongoDB garantiza la persistencia de datos atómica.',
+    github: 'https://github.com/matiasjaque-dev/real-time-chat',
+    demo: 'https://www.loom.com/share/ce025d0f321e47819cbb2e6c1b6b687b', // Tu video de Loom
   },
 ];
 
