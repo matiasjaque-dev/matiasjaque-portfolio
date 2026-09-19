@@ -1,39 +1,30 @@
-// components/Footer.jsx
-
-import { Box, Typography, Fade } from '@mui/material';
 import React from 'react';
+import { Box, Typography } from '@mui/material';
+import { profile } from '../data/profile';
+import { ui } from '../data/ui';
+import { useLocale } from '../context/LocaleContext';
 
 const Footer = () => {
+  const { t } = useLocale();
+
   return (
-    <Fade in timeout={600}>
-      <Box
-        component="footer"
-        role="contentinfo"
-        sx={{
-          py: { xs: 2, md: 3 },
-          px: 2,
-          textAlign: 'center',
-          backgroundColor: 'primary.main',
-          color: 'white',
-          mt: 2,
-        }}
-      >
-        <Typography
-          variant="body2"
-          sx={{ fontSize: { xs: '0.85rem', md: '0.95rem' } }}
-        >
-          © {new Date().getFullYear()} Matias Jaque. Todos los derechos
-          reservados.
-        </Typography>
-        <Typography
-          component="p"
-          variant="caption"
-          sx={{ opacity: 0.8, fontSize: { xs: '0.75rem', md: '0.85rem' } }}
-        >
-          Construido con React, MUI y pasión por el desarrollo.
-        </Typography>
-      </Box>
-    </Fade>
+    <Box
+      component="footer"
+      sx={{
+        py: { xs: 2.5, md: 3 },
+        px: 2,
+        textAlign: 'center',
+        bgcolor: 'primary.main',
+        color: 'primary.contrastText',
+      }}
+    >
+      <Typography variant="body2">
+        © {new Date().getFullYear()} {profile.name}. {t(ui.footer.rights)}
+      </Typography>
+      <Typography variant="caption" sx={{ display: 'block', mt: 0.5, opacity: 0.8 }}>
+        {t(ui.footer.builtWith)}
+      </Typography>
+    </Box>
   );
 };
 

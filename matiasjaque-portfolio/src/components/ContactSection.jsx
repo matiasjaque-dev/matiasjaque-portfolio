@@ -1,104 +1,77 @@
 import React from 'react';
-import {
-  Box,
-  Typography,
-  Stack,
-  IconButton,
-  Button,
-  Link,
-} from '@mui/material';
-import { GitHub, LinkedIn, Email, Phone, Download } from '@mui/icons-material';
+import { Button, Link, Stack } from '@mui/material';
+import { Download, Email, GitHub, LinkedIn, Phone } from '@mui/icons-material';
+import { profile } from '../data/profile';
+import { ui } from '../data/ui';
+import { useLocale } from '../context/LocaleContext';
+import SectionHeading, { Section } from './SectionHeading';
 
 const ContactSection = () => {
+  const { t } = useLocale();
+
   return (
-    <Box id="contact" sx={{ py: { xs: 2, md: 3 }, px: 2, textAlign: 'center' }}>
-      <Typography
-        variant="h3"
-        align="center"
-        fontWeight="bold"
-        marginBottom={2}
-        sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}
-      >
-        Contáctame
-      </Typography>
-      <Typography
-        variant="body1"
-        mb={1}
-        maxWidth={'700px'}
-        mx={'auto'}
-        fontSize={{ xs: '0.95rem', md: '1rem' }}
-      >
-        Si deseas contactarme por oportunidades laborales, colaboraciones o
-        proyectos, aquí encontrarás mis datos de contacto y enlaces relevantes.
-      </Typography>
-
-      <Typography variant="h6" fontWeight="medium" mt={2} mb={0.5}>
-        Redes y Contacto
-      </Typography>
-
+    <Section id="contact" bgcolor="grey.100">
+      <SectionHeading
+        id="contact"
+        title={t(ui.contact.title)}
+        subtitle={t(ui.contact.subtitle)}
+      />
       <Stack
         direction="row"
-        spacing={3}
-        justifyContent="center"
         flexWrap="wrap"
-        gap={1}
+        useFlexGap
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
       >
-        <Stack direction="row" alignItems="center">
-          <IconButton
-            color="primary"
-            href="mailto:matias.jaque.dev@gmail.com"
-            aria-label="Enviar correo"
-          >
-            <Email />
-          </IconButton>
-          <Typography variant="body1">matias.jaque.dev@gmail.com</Typography>
-        </Stack>
-
-        <Stack direction="row" spacing={1} alignItems="center">
-          <Phone color="primary" />
-          <Typography variant="body1">+56 947370877</Typography>
-        </Stack>
-
-        <Stack direction="row" spacing={1} alignItems="center">
-          <GitHub color="primary" />
-          <Link
-            href="https://github.com/matiasjaque-dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-          >
-            Github
-          </Link>
-        </Stack>
-
-        <Stack direction="row" spacing={1} alignItems="center">
-          <LinkedIn color="primary" />
-          <Link
-            href="https://www.linkedin.com/in/matias-jaque-montecinos"
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-          >
-            Linkedin
-          </Link>
-        </Stack>
-
+        <Button
+          component={Link}
+          href={`mailto:${profile.email}`}
+          aria-label={t(ui.contact.email)}
+          startIcon={<Email />}
+          color="inherit"
+        >
+          {profile.email}
+        </Button>
+        <Button
+          component={Link}
+          href={profile.phoneHref}
+          aria-label={t(ui.contact.phone)}
+          startIcon={<Phone />}
+          color="inherit"
+        >
+          {profile.phone}
+        </Button>
+        <Button
+          component={Link}
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          startIcon={<GitHub />}
+          color="inherit"
+        >
+          {profile.githubLabel}
+        </Button>
+        <Button
+          component={Link}
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          startIcon={<LinkedIn />}
+          color="inherit"
+        >
+          {profile.linkedinLabel}
+        </Button>
         <Button
           variant="contained"
-          color="primary"
           startIcon={<Download />}
-          href="/Matías-Jaque-cv-2025.pdf"
+          href={profile.cvPath}
           download
-          sx={{
-            py: 1,
-            px: 1.5,
-            fontSize: { xs: '0.8rem', md: '0.8rem' },
-          }}
         >
-          Descargar CV
+          {t(ui.contact.cv)}
         </Button>
       </Stack>
-    </Box>
+    </Section>
   );
 };
 

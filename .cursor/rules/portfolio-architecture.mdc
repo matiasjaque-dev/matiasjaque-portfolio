@@ -1,0 +1,17 @@
+---
+description: Portfolio architecture, content, and scope rules
+alwaysApply: true
+---
+
+# Portfolio architecture
+
+The Vite app lives in `matiasjaque-portfolio/`. Edit that folder, not the git root.
+
+- Keep this a **single-page Vite + React + MUI** site. Do not add Next.js, Redux, Zustand, Framer Motion, or react-router unless the user asks.
+- **All user-facing copy** belongs in `src/data/`. Components render data; they do not own bios, jobs, projects, or labels.
+- Strings that vary by language use `{ en, es }`. Default locale is English. Use `useLocale().t()`.
+- **Do not invent** employers, dates, degrees, metrics, or English level. Source of truth is the CV and existing repos.
+- Light theme only until dark mode is fully wired (`CssBaseline` + no hardcoded hex).
+- Prefer small, reusable presentational components (`SectionHeading`, `ProjectCard`). Do not build a design system.
+- New projects = a new object in `src/data/projects.js`, not a new component.
+---

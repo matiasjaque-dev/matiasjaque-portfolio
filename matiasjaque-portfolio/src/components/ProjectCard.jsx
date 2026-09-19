@@ -1,91 +1,90 @@
-import Card from '@mui/material/Card';
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import React from 'react';
 import PropTypes from 'prop-types';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Button from '@mui/material/Button';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Chip,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { GitHub, OpenInNew } from '@mui/icons-material';
+import { ui } from '../data/ui';
+import { useLocale } from '../context/LocaleContext';
 
 const ProjectCard = ({ project }) => {
+  const { t } = useLocale();
+  const liveHref = project.links.live;
+  const videoHref = project.links.video;
+  const demoHref = liveHref || videoHref;
+  const demoLabel = liveHref ? t(ui.project.live) : t(ui.project.video);
+
   return (
     <Card
       sx={{
-        transition: 'transform 0.2s, box-shadow 0.2s',
-        '&:hover': { transform: 'translateY(-4px)', boxShadow: 6 },
-        height: '100%', // Para que ocupe toda la celda del Grid
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        maxWidth: 550,
-        width: '100%',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+        '&:hover': { transform: 'translateY(-4px)', boxShadow: 6 },
       }}
     >
       <CardMedia
         component="img"
         image={project.image}
-        alt={project.name}
+        alt={t(project.title)}
         sx={{
-          aspectRatio: { xs: '4/3', md: '16/9' },
-          maxHeight: { xs: 150, md: 190 },
+          aspectRatio: '16 / 9',
           width: '100%',
           objectFit: 'cover',
           objectPosition: 'center',
-          borderTopLeftRadius: 4,
-          borderTopRightRadius: 4,
         }}
       />
-
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography variant="h6" gutterBottom fontWeight={'bold'}>
-          {project.name}
+        <Typography component="h3" variant="h6" fontWeight={700} gutterBottom>
+          {t(project.title)}
         </Typography>
-        <Stack direction={'row'} spacing={1} mb={1} flexWrap={'wrap'}>
-          {project.tech.map((tech) => (
+        <Stack direction="row" flexWrap="wrap" useFlexGap spacing={1} sx={{ mb: 1.5 }}>
+          {project.stack.map((tech) => (
             <Chip key={tech} label={tech} size="small" color="primary" />
           ))}
         </Stack>
-        <Typography variant="body2" color="text.secondary">
-          {project.description}
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          {t(project.summary)}
         </Typography>
+        <Stack component="ul" spacing={0.5} sx={{ m: 0, pl: 2 }}>
+          {t(project.highlights).map((item) => (
+            <Typography key={item} component="li" variant="body2" color="text.secondary">
+              {item}
+            </Typography>
+          ))}
+        </Stack>
       </CardContent>
-      <CardActions sx={{ justifyContent: 'space-between' }}>
-        {project.github && project.github !== '#' ? (
-          <Button
-            size="small"
-            variant="outlined"
-            href={project.github}
-            target="_blank"
-            rel="noopener"
-            startIcon={<GitHub />}
-          >
-            GitHub
-          </Button>
-        ) : (
-          <Button size="small" variant="outlined" disabled startIcon={<GitHub />}>
-            GitHub
-          </Button>
-        )}
-
-        {project.demo && project.demo !== '#' ? (
+      <CardActions sx={{ px: 2, pb: 2, pt: 0, justifyContent: 'space-between' }}>
+        <Button
+          size="small"
+          variant="outlined"
+          href={project.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          startIcon={<GitHub />}
+        >
+          {t(ui.project.github)}
+        </Button>
+        {demoHref ? (
           <Button
             size="small"
             variant="contained"
-            href={project.demo}
+            href={demoHref}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             endIcon={<OpenInNew />}
           >
-            Visitar Sitio
+            {demoLabel}
           </Button>
-        ) : (
-          <Button size="small" variant="contained" disabled endIcon={<OpenInNew />}>
-            Visitar Sitio
-          </Button>
-        )}
+        ) : null}
       </CardActions>
     </Card>
   );
@@ -94,13 +93,16 @@ const ProjectCard = ({ project }) => {
 ProjectCard.propTypes = {
   project: PropTypes.shape({
     image: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    demo: PropTypes.string.isRequired,
-    github: PropTypes.string.isRequired,
-    tech: PropTypes.arrayOf(PropTypes.string).isRequired,
-    description: PropTypes.string.isRequired,
+    title: PropTypes.object.isRequired,
+    summary: PropTypes.object.isRequired,
+    highlights: PropTypes.object.isRequired,
+    stack: PropTypes.arrayOf(PropTypes.string).isRequired,
+    links: PropTypes.shape({
+      github: PropTypes.string.isRequired,
+      live: PropTypes.string,
+      video: PropTypes.string,
+    }).isRequired,
   }).isRequired,
-  onViewMore: PropTypes.func,
 };
 
 export default ProjectCard;

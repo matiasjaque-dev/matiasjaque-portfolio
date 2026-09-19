@@ -1,0 +1,22 @@
+---
+description: React 19 and Vite conventions for this portfolio
+globs: matiasjaque-portfolio/src/**/*.{js,jsx}
+alwaysApply: false
+---
+
+# React + Vite
+
+- Functional components only. Default-export page/section components; named-export hooks and utils.
+- Keep state local (`useState` / context). Do not add a global store for UI chrome.
+- In-page navigation uses `react-scroll` to section `id`s, not `react-router-dom`.
+- Put static identity assets in `public/` (photos, CV, favicon). Put project screenshots in `src/assets/` and import them from `src/data/projects.js`.
+- After changing UI, layout, routing, or rendered content, verify in the browser — appearance plus interaction.
+
+```jsx
+// ❌ BAD — copy locked inside the component
+<p>Soy desarrollador Front-End...</p>
+
+// ✅ GOOD
+<p>{t(profile.summary)}</p>
+```
+---

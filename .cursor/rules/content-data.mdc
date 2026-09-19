@@ -1,0 +1,25 @@
+---
+description: How to add and update portfolio content
+globs: matiasjaque-portfolio/src/data/**/*.js
+alwaysApply: false
+---
+
+# Content data
+
+| File | Owns |
+|---|---|
+| `profile.js` | Name, role, links, photos, CV, location |
+| `projects.js` | Project records + image imports |
+| `experience.js` | Jobs from the CV only |
+| `education.js` | Degrees from the CV only (no high school) |
+| `skills.js` | Grouped skills |
+| `ui.js` | Nav, headings, buttons, footer |
+
+Bilingual fields:
+
+```js
+title: { en: 'Patient management system', es: 'Sistema de gestión de pacientes' }
+```
+
+To add a project: append one object with `id`, `image`, `stack`, `links` (`github`, `live` and/or `video`), and bilingual `title` / `summary` / `highlights`. Do not duplicate that data in JSX.
+---

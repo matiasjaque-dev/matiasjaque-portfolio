@@ -1,0 +1,29 @@
+---
+description: MUI v7 layout, theme, and accessibility conventions
+globs: matiasjaque-portfolio/src/**/*.{js,jsx}
+alwaysApply: false
+---
+
+# MUI v7
+
+- Always wrap the app with `ThemeProvider` **and** `CssBaseline`.
+- Use theme tokens (`primary.main`, `text.secondary`, `grey.100`). Avoid raw `#000` / `#fff` except in `theme.js`.
+- MUI Grid v7 uses `size`, not the old `item xs sm md` API:
+
+```jsx
+// ❌ BAD
+<Grid item xs={12} md={6}>
+
+// ✅ GOOD
+<Grid size={{ xs: 12, md: 6 }}>
+```
+
+- Heading semantics: visual style via `variant`, real tag via `component`. One `h1` in the hero. Sections use `h2`.
+
+```jsx
+<Typography component="h2" variant="h4">Experience</Typography>
+```
+
+- Landmarks: `header`/`nav` in the app bar, `main` for page content, `section` per block, `footer` for the footer.
+- Icon-only buttons need `aria-label`. External links use `target="_blank"` and `rel="noopener noreferrer"`.
+---
