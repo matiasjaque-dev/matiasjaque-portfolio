@@ -23,14 +23,28 @@ function SkipLink() {
       href="#main"
       sx={{
         position: 'absolute',
-        left: 16,
-        top: 16,
+        width: 1,
+        height: 1,
+        padding: 0,
+        margin: -1,
+        overflow: 'hidden',
+        clip: 'rect(0, 0, 0, 0)',
+        whiteSpace: 'nowrap',
+        border: 0,
         zIndex: (muiTheme) => muiTheme.zIndex.modal + 1,
-        px: 2,
-        py: 1,
         bgcolor: 'background.paper',
-        transform: 'translateY(-200%)',
-        '&:focus': { transform: 'translateY(0)' },
+        color: 'text.primary',
+        '&:focus': {
+          width: 'auto',
+          height: 'auto',
+          margin: 0,
+          clip: 'auto',
+          overflow: 'visible',
+          px: 2,
+          py: 1,
+          left: 16,
+          top: 16,
+        },
       }}
     >
       {t(ui.skipToContent)}

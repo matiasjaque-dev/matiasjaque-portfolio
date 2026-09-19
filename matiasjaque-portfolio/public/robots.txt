@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://matiasjaque-portfolio-web.vercel.app/sitemap.xml

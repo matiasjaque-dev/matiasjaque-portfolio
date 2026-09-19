@@ -17,9 +17,9 @@ const ProjectsSection = () => {
         subtitle={t(ui.projects.subtitle)}
       />
       <Grid container spacing={3}>
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <Grid key={project.id} size={{ xs: 12, md: 6 }}>
-            <ProjectCard project={project} />
+            <ProjectCard project={project} priority={index === 0} />
           </Grid>
         ))}
       </Grid>

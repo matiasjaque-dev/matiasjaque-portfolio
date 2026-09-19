@@ -9,14 +9,19 @@ import {
   Typography,
   useMediaQuery,
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
-import { Link as ScrollLink } from 'react-scroll';
+import { scroller } from 'react-scroll';
 import { profile } from '../data/profile';
 import { ui } from '../data/ui';
 import { useLocale } from '../context/LocaleContext';
 
 const SCROLL_OFFSET = -80;
+
+function scrollToSection(id) {
+  scroller.scrollTo(id, { smooth: true, duration: 500, offset: SCROLL_OFFSET });
+}
 
 const Header = () => {
   const theme = useTheme();
@@ -25,33 +30,35 @@ const Header = () => {
   const isCompact = useMediaQuery(theme.breakpoints.down('md'));
 
   const navItems = ui.nav.map((item) => (
-    <ScrollLink
+    <Button
       key={item.id}
-      to={item.id}
-      smooth
-      duration={500}
-      offset={SCROLL_OFFSET}
-      onClick={() => setDrawerOpen(false)}
+      color="inherit"
+      href={`#${item.id}`}
+      fullWidth={isCompact}
+      onClick={(event) => {
+        event.preventDefault();
+        setDrawerOpen(false);
+        scrollToSection(item.id);
+      }}
+      sx={{
+        justifyContent: isCompact ? 'flex-start' : 'center',
+        borderBottom: '2px solid transparent',
+        borderRadius: isCompact ? 1 : 0,
+        '&:hover': {
+          borderBottomColor: isCompact ? 'transparent' : 'currentColor',
+        },
+      }}
     >
-      <Button
-        color="inherit"
-        fullWidth={isCompact}
-        sx={{
-          justifyContent: isCompact ? 'flex-start' : 'center',
-          borderBottom: '2px solid transparent',
-          borderRadius: isCompact ? 1 : 0,
-          '&:hover': {
-            borderBottomColor: isCompact ? 'transparent' : 'currentColor',
-          },
-        }}
-      >
-        {t(item.label)}
-      </Button>
-    </ScrollLink>
+      {t(item.label)}
+    </Button>
   ));
 
   const localeToggle = (
-    <Box sx={{ display: 'flex', ml: isCompact ? 0 : 1 }}>
+    <Box
+      role="group"
+      aria-label={t(ui.localeGroup)}
+      sx={{ display: 'flex', ml: isCompact ? 0 : 1 }}
+    >
       <Button
         color="inherit"
         size="small"
@@ -77,15 +84,17 @@ const Header = () => {
 
   return (
     <AppBar position="sticky" color="primary" elevation={2} component="header">
-      <Toolbar component="nav" aria-label={profile.name} sx={{ gap: 0.5 }}>
+      <Toolbar component="nav" aria-label={t(ui.navAria)} sx={{ gap: 0.5 }}>
         <Typography
-          component={ScrollLink}
-          to="hero"
-          smooth
-          duration={500}
-          offset={SCROLL_OFFSET}
+          component="a"
+          href="#hero"
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToSection('hero');
+          }}
           variant="h6"
-          sx={{ flexGrow: 1, cursor: 'pointer', fontWeight: 700 }}
+          color="inherit"
+          sx={{ flexGrow: 1, textDecoration: 'none', fontWeight: 700 }}
         >
           {profile.name}
         </Typography>
@@ -97,17 +106,21 @@ const Header = () => {
               edge="end"
               onClick={() => setDrawerOpen(true)}
               aria-label={t(ui.menu.open)}
+              aria-expanded={drawerOpen}
+              aria-controls="mobile-navigation"
             >
               <MenuIcon />
             </IconButton>
             <Drawer
+              id="mobile-navigation"
               anchor="right"
               open={drawerOpen}
               onClose={() => setDrawerOpen(false)}
+              ModalProps={{ keepMounted: true }}
             >
               <Box
                 sx={{
-                  width: 220,
+                  width: 240,
                   display: 'flex',
                   flexDirection: 'column',
                   p: 2,
@@ -115,6 +128,14 @@ const Header = () => {
                 }}
                 role="presentation"
               >
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}>
+                  <IconButton
+                    onClick={() => setDrawerOpen(false)}
+                    aria-label={t(ui.menu.close)}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                </Box>
                 {navItems}
               </Box>
             </Drawer>

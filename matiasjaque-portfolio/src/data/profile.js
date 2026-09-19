@@ -16,7 +16,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/matias-jaque-montecinos',
   linkedinLabel: 'LinkedIn',
   website: 'https://matiasjaque-portfolio-web.vercel.app/',
-  cvPath: '/Matías-Jaque-cv-2025.pdf',
+  cvPath: '/matias-jaque-cv.pdf',
   photo: '/matias-jaque-professional.webp',
   photoAlt: {
     en: 'Professional photo of Matías Jaque',

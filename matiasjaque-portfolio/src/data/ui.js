@@ -3,6 +3,18 @@ export const ui = {
     en: 'Skip to content',
     es: 'Saltar al contenido',
   },
+  meta: {
+    title: {
+      en: 'Matías Jaque | Frontend Developer',
+      es: 'Matías Jaque | Desarrollador Front-End',
+    },
+    description: {
+      en: 'Frontend Developer in Santiago, Chile. React, Vue, and Node.js. Experience at MaintData and Universidad de Santiago de Chile.',
+      es: 'Desarrollador Front-End en Santiago, Chile. React, Vue y Node.js. Experiencia en MaintData y la Universidad de Santiago de Chile.',
+    },
+  },
+  navAria: { en: 'Primary', es: 'Principal' },
+  localeGroup: { en: 'Language', es: 'Idioma' },
   nav: [
     { id: 'projects', label: { en: 'Projects', es: 'Proyectos' } },
     { id: 'experience', label: { en: 'Experience', es: 'Experiencia' } },

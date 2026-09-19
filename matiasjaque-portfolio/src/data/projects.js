@@ -1,11 +1,16 @@
-import ecommerceStore from '../assets/e-commerce_store_react.png';
-import patientManagement from '../assets/managment-psychology.jpeg';
-import realtimeChat from '../assets/realTimeChatDiagram.png';
+import patientManagement from '../assets/managment-psychology.webp';
+import realtimeChat from '../assets/realTimeChatDiagram.webp';
+import ecommerceStore from '../assets/e-commerce_store_react.webp';
 
 export const projects = [
   {
     id: 'patient-management',
     image: patientManagement,
+    imagePosition: 'top',
+    imageAlt: {
+      en: 'Login screen of the patient management platform',
+      es: 'Pantalla de inicio de sesión de la plataforma de gestión de pacientes',
+    },
     stack: ['React', 'TypeScript', 'Material UI', 'Node.js', 'MongoDB', 'JWT'],
     links: {
       github: 'https://github.com/matiasjaque-dev/managment-psychology-app',
@@ -35,6 +40,11 @@ export const projects = [
   {
     id: 'realtime-chat',
     image: realtimeChat,
+    imagePosition: 'center',
+    imageAlt: {
+      en: 'Architecture diagram of the distributed real-time chat system',
+      es: 'Diagrama de arquitectura del sistema de chat en tiempo real',
+    },
     stack: ['Node.js', 'Socket.io', 'Redis', 'MongoDB', 'Docker', 'Express', 'JWT'],
     links: {
       github: 'https://github.com/matiasjaque-dev/real-time-chat',
@@ -64,6 +74,11 @@ export const projects = [
   {
     id: 'ecommerce-store',
     image: ecommerceStore,
+    imagePosition: 'top',
+    imageAlt: {
+      en: 'Product catalog of the e-commerce storefront',
+      es: 'Catálogo de productos de la tienda e-commerce',
+    },
     stack: ['React', 'Vite', 'Zustand', 'Tailwind CSS', 'Firestore'],
     links: {
       github: 'https://github.com/matiasjaque-dev/eccomerce-store-react',

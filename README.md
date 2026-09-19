@@ -1,63 +1,26 @@
-# 🚀 Portafolio de Matías Jaque
+# Matías Jaque — Portfolio
 
-Este es mi portafolio profesional como desarrollador Front-End, para presentar mis proyectos, habilidades y experiencia de forma clara y profesional.
+Personal site for Matías Jaque, Frontend Developer. Built with React, Vite, and MUI.
 
-## 🖼️ Vista previa
+The Vite app lives in the `matiasjaque-portfolio/` folder (the git root also contains this README).
 
-![Captura de pantalla de inicio](./matiasjaque-portfolio/screenshots/projects.png)
-![Captura de pantalla de inicio](./matiasjaque-portfolio/screenshots/aboutMe.png)
-![Captura de pantalla de inicio](./matiasjaque-portfolio/screenshots/contactMe.png)
-
-## ✨ Características
-
-✅ Diseño responsive adaptado a dispositivos móviles, tablet y escritorio.  
-✅ Secciones claras: Proyectos, Acerca de mí, Contacto y Footer.  
-✅ Tipografía limpia con Inter y paleta elegante blanco/negro.  
-✅ Organización modular de componentes para fácil mantenimiento y escalabilidad.  
-✅ Preparado para despliegue en Vercel.
-
-## 🛠️ Tecnologías utilizadas
-
-- **React**
-- **Vite**
-- **Material-UI (MUI)**
-- **JavaScript**
-- **HTML5 y CSS3**
-- **Eslint y Prettier** para formato y calidad de código
-
-## 🚀 Cómo ejecutar localmente
-
-1️⃣ Clonar el repositorio:
+## Run locally
 
 ```bash
 git clone https://github.com/matiasjaque-dev/matiasjaque-portfolio.git
-```
-
-2️⃣ Instalar dependencias:
-
-```bash
+cd matiasjaque-portfolio/matiasjaque-portfolio
 npm install
-```
-
-3️⃣ Ejecutar en desarrollo:
-
-```bash
 npm run dev
 ```
 
-4️⃣ Abrir en navegador:
+Open [http://localhost:5173](http://localhost:5173).
 
-```bash
-http://localhost:5173
-```
+## Content
 
-📬 Contacto
+User-facing copy lives in `src/data/`. Add a project by appending an object in `src/data/projects.js`. The header EN/ES toggle switches language without changing components.
 
-Si deseas contactarme para oportunidades laborales o colaboraciones:
+## Contact
 
-📧 matias.jaque.dev@gmail.com
-📱 +56 947370877
-
-Construido con pasión por el desarrollo y aprendizaje continuo.
-
-¡Gracias por visitar mi portafolio!
+- Email: matias.jaque.dev@gmail.com
+- LinkedIn: [matias-jaque-montecinos](https://www.linkedin.com/in/matias-jaque-montecinos)
+- GitHub: [matiasjaque-dev](https://github.com/matiasjaque-dev)

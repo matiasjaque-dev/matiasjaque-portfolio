@@ -67,6 +67,7 @@ const ContactSection = () => {
           startIcon={<Download />}
           href={profile.cvPath}
           download
+          aria-label={t(ui.contact.cv)}
         >
           {t(ui.contact.cv)}
         </Button>

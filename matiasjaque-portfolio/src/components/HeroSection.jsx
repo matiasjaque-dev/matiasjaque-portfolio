@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
-import { Link as ScrollLink } from 'react-scroll';
+import { scroller } from 'react-scroll';
 import { profile } from '../data/profile';
 import { ui } from '../data/ui';
 import { useLocale } from '../context/LocaleContext';
@@ -25,6 +25,10 @@ const HeroSection = () => {
             component="img"
             src={profile.photo}
             alt={t(profile.photoAlt)}
+            width={220}
+            height={220}
+            decoding="async"
+            fetchPriority="high"
             sx={{
               width: { xs: 168, md: 220 },
               height: { xs: 168, md: 220 },
@@ -67,12 +71,26 @@ const HeroSection = () => {
               justifyContent={{ xs: 'center', md: 'flex-start' }}
               sx={{ mt: 3 }}
             >
-              <ScrollLink to="projects" smooth duration={500} offset={-80}>
-                <Button variant="contained">{t(ui.hero.ctaProjects)}</Button>
-              </ScrollLink>
-              <ScrollLink to="contact" smooth duration={500} offset={-80}>
-                <Button variant="outlined">{t(ui.hero.ctaContact)}</Button>
-              </ScrollLink>
+              <Button
+                variant="contained"
+                href="#projects"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scroller.scrollTo('projects', { smooth: true, duration: 500, offset: -80 });
+                }}
+              >
+                {t(ui.hero.ctaProjects)}
+              </Button>
+              <Button
+                variant="outlined"
+                href="#contact"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scroller.scrollTo('contact', { smooth: true, duration: 500, offset: -80 });
+                }}
+              >
+                {t(ui.hero.ctaContact)}
+              </Button>
             </Stack>
           </Box>
         </Stack>

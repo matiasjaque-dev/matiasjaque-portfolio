@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
+import { ui } from '../data/ui';
 
 const LocaleContext = createContext(null);
 const STORAGE_KEY = 'portfolio-locale';
@@ -9,6 +10,33 @@ export function pickCopy(value, locale) {
     return value[locale] ?? value.en ?? value.es ?? '';
   }
   return value;
+}
+
+function syncDocumentMeta(locale) {
+  const title = pickCopy(ui.meta.title, locale);
+  const description = pickCopy(ui.meta.description, locale);
+  document.title = title;
+  document.documentElement.lang = locale === 'es' ? 'es' : 'en';
+
+  const descriptionTag = document.querySelector('meta[name="description"]');
+  if (descriptionTag) {
+    descriptionTag.setAttribute('content', description);
+  }
+
+  const ogLocale = document.querySelector('meta[property="og:locale"]');
+  if (ogLocale) {
+    ogLocale.setAttribute('content', locale === 'es' ? 'es_CL' : 'en_US');
+  }
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) {
+    ogTitle.setAttribute('content', title);
+  }
+
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription) {
+    ogDescription.setAttribute('content', description);
+  }
 }
 
 export function LocaleProvider({ children }) {
@@ -22,7 +50,7 @@ export function LocaleProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    document.documentElement.lang = locale;
+    syncDocumentMeta(locale);
   }, [locale]);
 
   const value = useMemo(() => {
