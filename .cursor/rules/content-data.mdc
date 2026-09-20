@@ -21,5 +21,5 @@ Bilingual fields:
 title: { en: 'Patient management system', es: 'Sistema de gestión de pacientes' }
 ```
 
-To add a project: append one object with `id`, `image`, `stack`, `links` (`github`, `live` and/or `video`), and bilingual `title` / `summary` / `highlights`. Do not duplicate that data in JSX.
+To add a project: prepend one object (newest first) with `id`, `image`, `stack`, `links` (`github`, `live` and/or `video`), and bilingual `title` / `summary` / `highlights`. Do not duplicate that data in JSX.
 ---

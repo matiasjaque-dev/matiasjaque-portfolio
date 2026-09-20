@@ -1,39 +1,40 @@
-import patientManagement from '../assets/managment-psychology.webp';
+import testingPlayground from '../assets/testing.jpg';
 import realtimeChat from '../assets/realTimeChatDiagram.webp';
 import ecommerceStore from '../assets/e-commerce_store_react.webp';
+import patientManagement from '../assets/managment-psychology.webp';
 
 export const projects = [
   {
-    id: 'patient-management',
-    image: patientManagement,
-    imagePosition: 'top',
+    id: 'testing-playground',
+    image: testingPlayground,
+    imagePosition: 'center',
     imageAlt: {
-      en: 'Login screen of the patient management platform',
-      es: 'Pantalla de inicio de sesión de la plataforma de gestión de pacientes',
+      en: 'Infographic comparing unit and integration testing with Jest and React Testing Library',
+      es: 'Infografía que compara unit e integration testing con Jest y React Testing Library',
     },
-    stack: ['React', 'TypeScript', 'Material UI', 'Node.js', 'MongoDB', 'JWT'],
+    stack: ['React', 'TypeScript', 'Jest', 'React Testing Library', 'Zustand', 'Zod'],
     links: {
-      github: 'https://github.com/matiasjaque-dev/managment-psychology-app',
-      live: 'https://managment-psychology-app.vercel.app/',
+      github: 'https://github.com/matiasjaque-dev/fullstack-engineering-playground',
+      video: 'https://www.loom.com/share/1cc56f345e5f4adfaf1a065787214469',
     },
     title: {
-      en: 'Patient management platform',
-      es: 'Sistema de gestión de pacientes',
+      en: 'Frontend testing playground',
+      es: 'Playground de testing frontend',
     },
     summary: {
-      en: 'Clinical web platform where patients book appointments, psychologists manage their caseload, and admins oversee the system.',
-      es: 'Plataforma clínica donde los pacientes agendan citas, los psicólogos gestionan sus pacientes y los administradores supervisan el sistema.',
+      en: 'Testing suite with Jest and React Testing Library: unit tests for Zustand and Zod, plus integration coverage for a registration form with mocked fetch.',
+      es: 'Suite de testing con Jest y React Testing Library: unit tests de Zustand y Zod, e integración de un formulario de registro con fetch mockeado.',
     },
     highlights: {
       en: [
-        'Role-based authentication for patients, psychologists, and admins',
-        'Dashboard workflows for scheduling and patient follow-up',
-        'REST API with Node.js, MongoDB, and JWT',
+        'Unit tests for global state (Zustand) and schema validation (Zod)',
+        'Integration tests for a full registration form flow with user events',
+        'Native fetch API responses mocked for reliable component testing',
       ],
       es: [
-        'Autenticación por roles para pacientes, psicólogos y administradores',
-        'Flujos de panel para agendamiento y seguimiento de pacientes',
-        'API REST con Node.js, MongoDB y JWT',
+        'Unit tests para estado global (Zustand) y validación de schemas (Zod)',
+        'Tests de integración del flujo completo de un formulario de registro',
+        'Respuestas de la API fetch nativa mockeadas para tests confiables',
       ],
     },
   },
@@ -102,6 +103,40 @@ export const projects = [
         'Carrito y stock persistidos en Firestore',
         'Estado global de UI con Zustand',
         'Vitrina responsive con React, Vite y Tailwind CSS',
+      ],
+    },
+  },
+  {
+    id: 'patient-management',
+    image: patientManagement,
+    imagePosition: 'top',
+    imageAlt: {
+      en: 'Login screen of the patient management platform',
+      es: 'Pantalla de inicio de sesión de la plataforma de gestión de pacientes',
+    },
+    stack: ['React', 'TypeScript', 'Material UI', 'Node.js', 'MongoDB', 'JWT'],
+    links: {
+      github: 'https://github.com/matiasjaque-dev/managment-psychology-app',
+      live: 'https://managment-psychology-app.vercel.app/',
+    },
+    title: {
+      en: 'Patient management platform',
+      es: 'Sistema de gestión de pacientes',
+    },
+    summary: {
+      en: 'Clinical web platform where patients book appointments, psychologists manage their caseload, and admins oversee the system.',
+      es: 'Plataforma clínica donde los pacientes agendan citas, los psicólogos gestionan sus pacientes y los administradores supervisan el sistema.',
+    },
+    highlights: {
+      en: [
+        'Role-based authentication for patients, psychologists, and admins',
+        'Dashboard workflows for scheduling and patient follow-up',
+        'REST API with Node.js, MongoDB, and JWT',
+      ],
+      es: [
+        'Autenticación por roles para pacientes, psicólogos y administradores',
+        'Flujos de panel para agendamiento y seguimiento de pacientes',
+        'API REST con Node.js, MongoDB y JWT',
       ],
     },
   },
