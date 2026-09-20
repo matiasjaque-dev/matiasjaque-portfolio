@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Chip, Stack, Typography } from '@mui/material';
 import { skillGroups } from '../data/skills';
-import { profile } from '../data/profile';
 import { ui } from '../data/ui';
 import { useLocale } from '../context/LocaleContext';
 import SectionHeading, { Section } from './SectionHeading';
@@ -34,21 +33,6 @@ const SkillsSection = () => {
             </Stack>
           </Box>
         ))}
-        <Box>
-          <Typography
-            component="h3"
-            variant="subtitle1"
-            fontWeight={700}
-            sx={{ mb: 1.25 }}
-          >
-            {t(ui.skills.languages)}
-          </Typography>
-          <Stack direction="row" flexWrap="wrap" useFlexGap spacing={1}>
-            {profile.languages.map((language) => (
-              <Chip key={t(language)} label={t(language)} color="primary" />
-            ))}
-          </Stack>
-        </Box>
       </Stack>
     </Section>
   );

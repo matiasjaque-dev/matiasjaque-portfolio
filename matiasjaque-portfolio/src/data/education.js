@@ -2,16 +2,16 @@ export const education = [
   {
     id: 'usach-degree',
     school: {
-      en: 'Universidad de Santiago de Chile',
-      es: 'Universidad de Santiago de Chile',
+      en: 'Universidad de Santiago de Chile (USACH)',
+      es: 'Universidad de Santiago de Chile (USACH)',
     },
     degree: {
-      en: 'Informatics Engineering (Ingeniería en Ejecución en Informática)',
+      en: 'Ingeniería en Ejecución en Informática',
       es: 'Ingeniería en Ejecución en Informática',
     },
     period: {
-      en: 'Mar 2019 – Dec 2022',
-      es: 'Mar 2019 – Dic 2022',
+      en: '2019 – 2022',
+      es: '2019 – 2022',
     },
     location: {
       en: 'Chile',

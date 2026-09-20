@@ -8,6 +8,7 @@ import SectionHeading, { Section } from './SectionHeading';
 
 const ContactSection = () => {
   const { t } = useLocale();
+  const cvHref = t(profile.cvPath);
 
   return (
     <Section id="contact" bgcolor="grey.100">
@@ -65,7 +66,7 @@ const ContactSection = () => {
         <Button
           variant="contained"
           startIcon={<Download />}
-          href={profile.cvPath}
+          href={cvHref}
           download
           aria-label={t(ui.contact.cv)}
         >

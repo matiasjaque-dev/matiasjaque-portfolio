@@ -5,12 +5,12 @@ export const ui = {
   },
   meta: {
     title: {
-      en: 'Matías Jaque | Frontend Developer',
-      es: 'Matías Jaque | Desarrollador Front-End',
+      en: 'Matías Jaque | Full-Stack Developer',
+      es: 'Matías Jaque | Desarrollador Full Stack',
     },
     description: {
-      en: 'Frontend Developer in Santiago, Chile. React, Vue, and Node.js. Experience at MaintData and Universidad de Santiago de Chile.',
-      es: 'Desarrollador Front-End en Santiago, Chile. React, Vue y Node.js. Experiencia en MaintData y la Universidad de Santiago de Chile.',
+      en: 'Full-Stack Developer in Santiago, Chile. 3 years with React, Node.js, and Firebase. Experience at MaintData and Universidad de Santiago de Chile.',
+      es: 'Desarrollador Full Stack en Santiago, Chile. 3 años con React, Node.js y Firebase. Experiencia en MaintData y la Universidad de Santiago de Chile.',
     },
   },
   navAria: { en: 'Primary', es: 'Principal' },
@@ -46,8 +46,8 @@ export const ui = {
   experience: {
     title: { en: 'Experience', es: 'Experiencia' },
     subtitle: {
-      en: 'Two years building and maintaining production web software.',
-      es: 'Dos años construyendo y manteniendo software web en producción.',
+      en: 'Three years building and maintaining production full-stack web software.',
+      es: 'Tres años construyendo y manteniendo software web full stack en producción.',
     },
   },
   skills: {
@@ -56,7 +56,6 @@ export const ui = {
       en: 'Tools I use in production and in personal projects.',
       es: 'Herramientas que uso en producción y en proyectos personales.',
     },
-    languages: { en: 'Languages', es: 'Idiomas' },
   },
   about: {
     title: { en: 'About', es: 'Acerca de mí' },
