@@ -17,7 +17,7 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ## Content
 
-User-facing copy lives in `src/data/`. Add a project by appending an object in `src/data/projects.js`. The header EN/ES toggle switches language without changing components.
+User-facing copy lives in `src/data/`. Add a project by prepending an object (newest first) in `src/data/projects.js`. The header EN/ES toggle switches language without changing components.
 
 ## Contact
 
