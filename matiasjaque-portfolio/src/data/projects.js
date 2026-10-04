@@ -1,9 +1,44 @@
+import stateManagementComparison from '../assets/compare-contextAPI-zustand-RTK.jpg';
 import testingPlayground from '../assets/testing.jpg';
 import realtimeChat from '../assets/realTimeChatDiagram.webp';
 import ecommerceStore from '../assets/e-commerce_store_react.webp';
 import patientManagement from '../assets/managment-psychology.webp';
 
 export const projects = [
+  {
+    id: 'state-management-comparison',
+    image: stateManagementComparison,
+    imagePosition: 'center',
+    imageAlt: {
+      en: 'Infographic comparing Context API, Zustand, and Redux Toolkit for React state management',
+      es: 'Infografía que compara Context API, Zustand y Redux Toolkit para gestión de estado en React',
+    },
+    stack: ['React', 'Context API', 'Zustand', 'Redux Toolkit'],
+    links: {
+      github: 'https://github.com/matiasjaque-dev/fullstack-engineering-playground',
+      video: 'https://www.loom.com/share/2f471ca30cad44ad966e8c055f7a9f04',
+    },
+    title: {
+      en: 'React state management comparison',
+      es: 'Comparación de gestión de estado en React',
+    },
+    summary: {
+      en: 'Side-by-side look at Context API, Zustand, and Redux Toolkit: when each one fits, how re-renders differ, and whether state survives a refresh.',
+      es: 'Comparación de Context API, Zustand y Redux Toolkit: cuándo conviene cada uno, cómo re-renderizan y si el estado sobrevive al recargar.',
+    },
+    highlights: {
+      en: [
+        'Context API for static data such as theme or language: simple to set up, but every connected component re-renders and state is lost on refresh',
+        'Zustand re-renders only the component that updates and can persist state across refresh',
+        'Redux Toolkit performs similarly to Zustand, with a stricter structure for large apps and bigger teams',
+      ],
+      es: [
+        'Context API para datos estáticos como tema o idioma: fácil de configurar, pero re-renderiza todos los componentes conectados y no persiste al recargar',
+        'Zustand re-renderiza solo el componente que cambia y puede guardar el estado al recargar',
+        'Redux Toolkit rinde de forma similar a Zustand, con una estructura más estricta para apps grandes y equipos numerosos',
+      ],
+    },
+  },
   {
     id: 'testing-playground',
     image: testingPlayground,

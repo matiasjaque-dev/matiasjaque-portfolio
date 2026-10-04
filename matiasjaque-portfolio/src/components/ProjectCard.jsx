@@ -17,6 +17,7 @@ import { useLocale } from '../context/LocaleContext';
 const ProjectCard = ({ project, priority = false }) => {
   const { t } = useLocale();
   const title = t(project.title);
+  const githubHref = project.links.github;
   const liveHref = project.links.live;
   const videoHref = project.links.video;
   const demoHref = liveHref || videoHref;
@@ -76,17 +77,19 @@ const ProjectCard = ({ project, priority = false }) => {
         </Stack>
       </CardContent>
       <CardActions sx={{ px: 2, pb: 2, pt: 0, mt: 'auto', justifyContent: 'space-between' }}>
-        <Button
-          size="small"
-          variant="outlined"
-          href={project.links.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          startIcon={<GitHub />}
-          aria-label={`${t(ui.project.github)}: ${title}`}
-        >
-          {t(ui.project.github)}
-        </Button>
+        {githubHref ? (
+          <Button
+            size="small"
+            variant="outlined"
+            href={githubHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            startIcon={<GitHub />}
+            aria-label={`${t(ui.project.github)}: ${title}`}
+          >
+            {t(ui.project.github)}
+          </Button>
+        ) : null}
         {demoHref ? (
           <Button
             size="small"
@@ -96,6 +99,7 @@ const ProjectCard = ({ project, priority = false }) => {
             rel="noopener noreferrer"
             endIcon={isVideo ? <PlayCircleOutline /> : <OpenInNew />}
             aria-label={`${demoLabel}: ${title}`}
+            sx={{ ml: 'auto' }}
           >
             {demoLabel}
           </Button>
@@ -116,7 +120,7 @@ ProjectCard.propTypes = {
     highlights: PropTypes.object.isRequired,
     stack: PropTypes.arrayOf(PropTypes.string).isRequired,
     links: PropTypes.shape({
-      github: PropTypes.string.isRequired,
+      github: PropTypes.string,
       live: PropTypes.string,
       video: PropTypes.string,
     }).isRequired,
